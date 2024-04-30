@@ -1,40 +1,41 @@
-import { Button, Heading, Input, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import * as React from 'react'
+import { Button, Heading, Input,  Text } from '@chakra-ui/react'
+import { MdStar } from 'react-icons/md'
 
 export const WaitingRoom = ({ joinChat }) => {
-	const [userName, setUserName] = useState();
-	const [charRoom, setChatRoom] = useState();
+	const [userName, setUserName] = useState()
+	const [charRoom, setChatRoom] = useState()
 
-	const onSubmit = (e) => {
-		e.preventDefault();
-		joinChat(userName, charRoom);
-	};
+	const onSubmit = e => {
+		e.preventDefault()
+		joinChat(userName, charRoom)
+	}
 
 	return (
 		<form
 			onSubmit={onSubmit}
-			className="max-w-sm w-full bg-white p-8 rounded shadow-lg"
+			className='max-w-sm w-full bg-white p-8 rounded shadow-lg'
 		>
-			<Heading size="lg">Онлайн чат</Heading>
-			<div className="mb-4">
-				<Text fontSize={"sm"}>Имя пользователя</Text>
+			<Heading size='lg'>Онлайн чат</Heading>
+			<div className='mb-4'>
+				<Text fontSize={'sm'}>Имя пользователя</Text>
 				<Input
-					name="username"
-					placeholder="Введите ваше имя"
-					onChange={(e) => setUserName(e.target.value)}
+					name='username'
+					placeholder='Введите ваше имя'
+					onChange={e => setUserName(e.target.value)}
 				/>
 			</div>
-			<div className="mb-6">
-				<Text fontSize={"sm"}>Название чата</Text>
+			<div className='mb-6'>
+				<Text fontSize={'sm'}>Название чата</Text>
 				<Input
-					name="chatname"
-					placeholder="Введите название чата"
-					onChange={(e) => setChatRoom(e.target.value)}
+					name='chatname'
+					placeholder='Введите название чата'
+					onChange={e => setChatRoom(e.target.value)}
 				/>
 			</div>
-			<Button type="submit" colorScheme="blue">
+			<Button type='submit' colorScheme='blue'>
 				Присоединиться
 			</Button>
 		</form>
-	);
-};
+	)
+}
